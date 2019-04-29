@@ -12,7 +12,7 @@ node('linux'){
     
     stage('Deploy'){
         withAwsCli(
-            sh "aws s3 cp /dist/rectangle-${BUILD_NUMBER}.jar s3://hw10-kerij-jenkinsbucket/rectangle-${BUILD_NUMBER}.jar"
+            sh "aws s3 cp ./dist/rectangle-${BUILD_NUMBER}.jar s3://hw10-kerij-jenkins-bucket/rectangle-${BUILD_NUMBER}.jar"
             )
     }
     
