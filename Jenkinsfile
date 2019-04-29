@@ -11,7 +11,9 @@ node('linux'){
     }
     
     stage('Deploy'){
-        aws s3 cp dist/rectangle-${BUILD_NUMBER}.jar s3://hw10-kerij-jenkinsbucket/rectangle-${BUILD_NUMBER}.jar
+        withAwsCli(
+            sh "aws s3 cp dist/rectangle-${BUILD_NUMBER}.jar s3://hw10-kerij-jenkinsbucket/rectangle-${BUILD_NUMBER}.jar"
+            )
     }
     
     stage('Report'){
